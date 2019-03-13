@@ -1,0 +1,90 @@
+#titlediv {
+    position:absolute;
+    right: 0px;
+    left: 0px;
+    top: 0px;
+    background: linear-gradient(90deg, #0D832C , #F6FBF7 , #C70039);
+    font-style: italic;
+}
+
+#contentdiv {
+    margin-top: 25px;
+    width: 100%;
+    display: inline-block;
+    height: 300px;
+}
+
+#vacationstable {
+    margin-left: auto;
+	margin-right: auto;
+	max-width: 1000px;
+    float: none;   
+    border-spacing: 10px;
+}
+
+#cellTable {
+    text-align: center;
+    height: 50px;
+}
+
+#cell_vote {
+    text-align: center;
+}
+
+#up_vote_button {
+    
+}
+
+#authornamecolumn {
+    width: 300px;
+    border-radius: 25px;
+    border: 2px solid black;
+    padding: 20px; 
+}
+
+#vacationsnamecolumn {
+    width: 300px;
+    border-radius: 25px;
+    border: 2px solid black;
+    padding: 20px; 
+}
+
+#datecolumn {
+    width: 250px;
+    border-radius: 25px;
+    border: 2px solid black;
+    padding: 20px; 
+}
+
+#votescolumn {
+    width: 100px;
+    border-radius: 25px;
+    border: 2px solid black;
+    padding: 20px; 
+}
+
+#detailscolumn {
+    width: 600px;
+    border-radius: 25px;
+    border: 2px solid black;
+    padding: 20px; 
+}
+
+th {
+    height: 20px;
+}
+
+#table_options_div {
+    margin-top: 150px;
+    text-align: center;
+}
+
+#filter_image {
+    height: 20px;
+    width: 20px;   
+}
+
+#sort_image {
+    height: 20px;
+    width: 20px;   
+}
