@@ -5,20 +5,18 @@ var vacations_db_controller = require('./db_controller');
 var app = express();
 
 app.use(express.static(path.join(__dirname, 'public')))
-
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-//to look for the url
+//home page load
 app.get('/', function(request, response) {
+    //get vacations function renders the homepage
     vacations_db_controller.get_vacations(request, response);
-    // response.render('the_vacation.ejs');
 });
-
-// app.get('/load_all_vacations', vacations_db.get_vacations_request);
 
 //app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
 if (PORT == null || PORT == "") {
   PORT = 5000;
+  console.log("Listening to port 5000");
 }
 app.listen(PORT);
