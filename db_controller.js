@@ -12,7 +12,11 @@ module.exports = {
             if (error) throw error;
             response.render('the_vacation.ejs', { vacations : vacations_result.rows });              
         });
-    }   
+    },
+    sign_up: function signup_new_user(request, response) {
+            console.log(request.query.email);
+            console.log(request.query.psw);
+    }
 }
 
 
