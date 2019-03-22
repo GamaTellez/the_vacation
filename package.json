@@ -4,11 +4,15 @@
   "description": "a simple nodejs app to suggest and select family vacations (school assignment)",
   "main": "the_vacation_index.js",
   "dependencies": {
+    "bcrypt": "^3.0.5",
     "dotenv": "^7.0.0",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
+    "express-session": "^1.15.6",
     "pg": "^7.8.2",
     "pg-pool": "^2.0.6",
+    "query-string": "^6.4.0",
+    "querystring": "^0.2.0",
     "sql": "^0.78.0"
   },
   "devDependencies": {},

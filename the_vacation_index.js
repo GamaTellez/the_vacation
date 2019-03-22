@@ -3,14 +3,28 @@ const express = require('express')
 const PORT = process.env.PORT || 5000;
 var vacations_db_controller = require('./db_controller');
 var app = express();
+var session = require("express-session");
+var bodyParser = require("body-parser");
 
 app.use(express.static(path.join(__dirname, 'public')))
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+//Session
+
+app.use(session({secret: 'ssshhhh'}));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}));
+var current_session;
+
 //get vacations function renders the homepage
 app.get('/', function(request, response) {
-    vacations_db_controller.get_vacations(request, response);
+  current_session = request.session;
+  if (current_session.username) {
+
+    } else {
+      vacations_db_controller.get_vacations(request, response);
+    }
 });
 
 //handle sign up tapped

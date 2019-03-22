@@ -9,7 +9,7 @@
             <h1 id="homepagetitle">May the best vacation win!</h1>
                     <form id="user_login_form" method="POST" action="/login">
                         <input type="text" id="username_textfield" name="username" placeholder="Username">
-                        <input type="text" id="password_textfield" name="password" placeholder="Password">
+                        <input type="password" id="password_textfield" name="password" placeholder="Password">
                         <input type="submit" name="login" value="Login">
                     </form> 
 
@@ -52,15 +52,15 @@
                         <th id="authornamecolumn">Author</th>
                         <th id="detailscolumn">Details</th>
                         <th id="votescolumn">Votes</th>
-                    </tr>                     
-                    <% for (var i = 0; i < vacations.length; i++) { %>
+                    </tr>   
+                        <% for (var i = 0; i < vacations.length; i++) { %>
                         <tr>
                             <td> <%= vacations[i].destination %> </td>
                             <td> <%= vacations[i].attendee_creator_id %> </td>
                             <td> <%= vacations[i].description %> </td>
                             <td> 0 </td>
                         </tr>
-                    <% } %>
+                        <% } %> 
                 </table>
             </form>
         </div>
@@ -73,14 +73,18 @@
                 <h1>Sign Up</h1>
                 <p>Please fill in this form to create an account.</p>
                 <hr>
+                
+                <label for="Full name"><b>Name</b></label>
+                <input type="text" placeholder="Enter your name" name="full_name" class="signup_textfield" required>
+                
                 <label for="email"><b>Email</b></label>
                 <input type="text" placeholder="Enter Email" name="email" class="signup_textfield" required>
 
                 <label for="psw"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="psw" class="signup_textfield" required>
+                <input type="password" placeholder="Enter Password" name="password" class="signup_textfield" required>
 
                 <label for="psw-repeat"><b>Repeat Password</b></label>
-                <input type="password" placeholder="Repeat Password" name="psw-repeat" class="signup_textfield" required>
+                <input type="password" placeholder="Repeat Password" name="password_repeat" class="signup_textfield" required>
 
                 <label>
                 <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
