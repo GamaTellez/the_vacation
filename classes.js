@@ -13,11 +13,17 @@ module.exports = {
             this.email = email;
             this.password = password;
         }
+
+        get_name() {
+            return this.full_name;
+        }
     },
 
-    vacation_vote : class Vacation_vote {
+    Vacation_vote : class Vacation_vote {
         constructor(vacation_id) {
             this.vacation_id = vacation_id;
         }
     }
+
+
 }

@@ -20,18 +20,34 @@ var current_session;
 //get vacations function renders the homepage
 app.get('/', function(request, response) {
   current_session = request.session;
-  if (current_session.username) {
-
+  if (current_session.current_user) {
+      vacations_db_controller.get_vacations(request, response, current_session.current_user);
     } else {
-      vacations_db_controller.get_vacations(request, response);
+      vacations_db_controller.get_vacations(request, response, current_session);
     }
 });
 
 //handle sign up tapped
-app.get('/sign_up', vacations_db_controller.sign_up);
+app.get('/sign_up', function(request, response) {
+  current_session = request.session;
+  vacations_db_controller.sign_up(request, response, current_session);
+});
+
+//handle sign in tap
+app.get('/sign_in', function(request, response) {
+    console.log("signing in");
+    current_session = request.session;
+    vacations_db_controller.sign_in(request, response, current_session);
+});
+
+app.get('/sign_out', function(request, response) {
+  
+});
 
 if (PORT == null || PORT == "") {
   PORT = 5000;
   console.log("Listening to port 5000");
 }
 app.listen(PORT);
+
+

@@ -1,0 +1,22 @@
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="/stylesheets/the_vacation_stylesheet.css" />
+<title>The Vacation</title>
+<div id="titlediv">
+    <h1 id="homepagetitle">May the best vacation win!</h1>
+            <form id="user_login_form" action="/sign_in">
+                <input type="text" id="username_textfield" name="email_login" placeholder="email">
+                <input type="password" id="password_textfield" name="password_login" placeholder="Password">
+                <button type="submit">Sign in</button>
+            </form> 
+            <button id="signup_button"name="sign_up" onclick="document.getElementById('id01').style.display='block'"> Dont have an account? Click here to sign up...</button>
+</div> 
+<script>
+    // Get the modal
+    var modal = document.getElementById('id01');
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>

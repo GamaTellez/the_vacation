@@ -1,0 +1,18 @@
+<form>
+<table id="vacationstable">
+    <tr>
+        <th id="vacationsnamecolumn">Destination</th>
+        <th id="authornamecolumn">Author</th>
+        <th id="detailscolumn">Details</th>
+        <th id="votescolumn">Votes</th>
+    </tr>   
+        <% for (var i = 0; i < vacations.length; i++) { %>
+        <tr>
+            <td> <%= vacations[i].destination %> </td>
+            <td> <%= vacations[i].attendee_creator_id %> </td>
+            <td> <%= vacations[i].description %> </td>
+            <td> 0 </td>
+        </tr>
+        <% } %> 
+</table>
+</form>

@@ -2,30 +2,12 @@
 <html>
 
     <head>
-        <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="/stylesheets/the_vacation_stylesheet.css" />
-        <title>The Vacation</title>
-        <div id="titlediv">
-            <h1 id="homepagetitle">May the best vacation win!</h1>
-                    <form id="user_login_form" method="POST" action="/login">
-                        <input type="text" id="username_textfield" name="username" placeholder="Username">
-                        <input type="password" id="password_textfield" name="password" placeholder="Password">
-                        <input type="submit" name="login" value="Login">
-                    </form> 
-
-                    <button id="signup_button"name="sign_up" onclick="document.getElementById('id01').style.display='block'"> Dont have an account? Click here to sign up...</button>
-            <!-- <img id="escudoMexico" src="escudoMex.png" width="100" height="100"> -->
-        </div> 
-        <script>
-            // Get the modal
-            var modal = document.getElementById('id01');
-            // When the user clicks anywhere outside of the modal, close it
-            window.onclick = function(event) {
-                if (event.target == modal) {
-                    modal.style.display = "none";
-                }
-            }
-        </script>
+        </script> -->
+        <% if (current_user) { %>
+        <% include partials/header_with_user %>
+        <% } else { %>
+        <% include partials/header_no_user %>
+        <% } %>
     </head>
 
     <body> 
@@ -45,7 +27,13 @@
         </div>
 
         <div id="contentdiv">
-            <form>
+            </script> 
+            <% if (current_user) { %>
+            <% include partials/vacations_table %>
+            <% } else { %>
+            <% include partials/vacations_table_placeholder %>
+            <% } %>
+            <!-- <form>
                 <table id="vacationstable">
                     <tr>
                         <th id="vacationsnamecolumn">Destination</th>
@@ -62,7 +50,7 @@
                         </tr>
                         <% } %> 
                 </table>
-            </form>
+            </form> -->
         </div>
             
              <!-- The Modal (contains the Sign Up form) -->
