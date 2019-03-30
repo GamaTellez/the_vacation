@@ -14,32 +14,59 @@ function get_all_vacations(callback) {
         console.log("error in vacations query " + error);
         return callback(error); // return to break process
       }
-      var all_complete = await loop_through_vacations(vacations_query_result.rows, pool); // await
-      callback(null, all_complete);
+        var all_complete = await loop_through_vacations(vacations_query_result.rows, pool); // await
+        callback(null, all_complete);
     });
   }
 
   async function loop_through_vacations(vacations_incomplete, pool) {
     var all_vacations = [];
-    var promises = []; // store all promise
+    var promises_creator = []; // store all promise
+    var promises_votes = [];
     for (var vacation_data of vacations_incomplete) {
       var vacation_at_index = new vac.Vacation(vacation_data.id, vacation_data.destination, vacation_data.description, vacation_data.attendee_creator_id);
-        console.log(vacation_at_index.destination);
-      promises.push( // push your promise to a store - promises
+      promises_creator.push( // push your promise to a store - promises
         vacation_at_index.find_creator(pool)
-          .then((vacation) => {
-            all_vacations.push(vacation)
-            console.log(vacation_at_index.destination + "<-- in loop function");
-          })
-          .catch((err) => {
-            console.log(err);
-          })
-      );
+            .then((vacation) => {
+                all_vacations.push(vacation);
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+        );
+        promises_votes.push(
+            vacation_at_index.find_votes(pool)
+            .then((vacation_with_vote)=> {
+            })
+            .catch((err)=> {
+                console.log(err);
+            })
+        );
     }
-    await Promise.all(promises); // wait until all promises finished
+    await Promise.all(promises_creator); // wait until all promises finished
+    await Promise.all(promises_votes);
     return all_vacations;
   }
 
+//   async function loop_through_vacations(vacations_incomplete, pool) {
+//     var all_vacations = [];
+//     var promises = []; // store all promise
+//     for (var vacation_data of vacations_incomplete) {
+//       var vacation_at_index = new vac.Vacation(vacation_data.id, vacation_data.destination, vacation_data.description, vacation_data.attendee_creator_id);
+//       promises.push( // push your promise to a store - promises
+//         vacation_at_index.find_creator(pool)
+//           .then((vacation) => {
+//             all_vacations.push(vacation)
+//           })
+//           .catch((err) => {
+//             console.log(err);
+//           })
+
+//       );
+//     }
+//     await Promise.all(promises); // wait until all promises finished
+//     return all_vacations;
+//   }
 
 module.exports = {
 
@@ -93,7 +120,8 @@ module.exports = {
                                 if (error) {
                                     console.log(error);
                                 }
-                                response.render('the_vacation.ejs', { vacations : vacations , current_user:new_current_user });           
+                                console.log(vacations);
+                                response.render('the_vacation.ejs', { vacations : vacations, current_user:new_current_user });           
                             });
                         } else {
                             console.log("password is incorrect");

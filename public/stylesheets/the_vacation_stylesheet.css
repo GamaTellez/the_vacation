@@ -72,6 +72,10 @@
   transform: scale(1.075,1.075);
 }
 
+#vote_button:active {
+  background: url(/images/like-filled-50.png) no-repeat;
+}
+
 #authornamecolumn {
     width: 300px;
     border-radius: 25px;

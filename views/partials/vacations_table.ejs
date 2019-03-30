@@ -25,7 +25,7 @@
             <td align="center"> <%= vacation_at_index.destination; %> </td>
             <td align="center"> <%= vacation_at_index.creator.get_name(); %> </td>
             <td align="center"> <%= vacation_at_index.description; %> </td>
-            <td align="center"> <%= 0 %></td>
+            <td align="center"> <%= vacation_at_index.votes.length; %></td>
             <td><button id="vote_button"></button></td>
         </tr>
         <% } %> 
