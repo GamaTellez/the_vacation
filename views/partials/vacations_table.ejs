@@ -1,4 +1,17 @@
-<form>
+<div id="table_options_div">
+        <img src="/images/ilter.png" id="filter_image">
+        <select id="filter_by_user_select">
+            <option value="start">Select user</option>
+        </select id="sort_by_select">
+    
+        <img src="/images/sort.png" id="sort_image">
+        <select>
+            <option>Select field</option>
+            <option value="0">Date</option>
+            <option value="1">Total votes</option>
+        </select>        
+</div>
+
 <table id="vacationstable">
     <tr>
         <th id="vacationsnamecolumn">Destination</th>
@@ -7,12 +20,16 @@
         <th id="votescolumn">Votes</th>
     </tr>   
         <% for (var i = 0; i < vacations.length; i++) { %>
+        <% var vacation_at_index = vacations[i];%>
         <tr>
-            <td> <%= vacations[i].destination %> </td>
-            <td> <%= vacations[i].attendee_creator_id %> </td>
-            <td> <%= vacations[i].description %> </td>
-            <td> 0 </td>
+            <td align="center"> <%= vacation_at_index.destination; %> </td>
+            <td align="center"> <%= vacation_at_index.creator.get_name(); %> </td>
+            <td align="center"> <%= vacation_at_index.description; %> </td>
+            <td align="center"> <%= 0 %></td>
+            <td><button id="vote_button"></button></td>
         </tr>
         <% } %> 
-</table>
-</form>
+    </table>
+<div>
+    <button id="create_vacation_button" onclick="document.getElementById('create_vacation_form').style.display='block'"></button>
+</div>

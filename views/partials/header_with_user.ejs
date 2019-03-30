@@ -3,6 +3,8 @@
 <title>The Vacation</title>
 <div id="titlediv">
     <h1 id="homepagetitle">May the best vacation win!</h1>
-            <h3><%= current_user.get_name() %></h3>
-            <button id="sign_out" name="sign_out_button" onclick="">Sign out</button>
+    <h3><%= current_user.get_name() %></h3>    
+    <form action="/sign_out">
+        <button type="submit" id="sign_out" name="sign_out_button" onclick="">Sign out</button>
+    </form>
 </div> 

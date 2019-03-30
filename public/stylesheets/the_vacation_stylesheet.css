@@ -1,3 +1,18 @@
+#create_vacation_button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  margin: 4px 2px;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  float: right;
+  background: url(/images/plus-96.png) no-repeat;
+}
+
 #signup_button {
     padding: 0;
     border: 0;
@@ -38,8 +53,23 @@
     text-align: center;
 }
 
-#up_vote_button {
-    
+#vote_button {
+  background-color: Transparent;
+  cursor:pointer;
+  border: none;
+  text-decoration: none;
+  margin: 4px 2px;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  float: right;
+  background: url(/images/like-50.png) no-repeat;
+}
+#vote_button:hover {
+  webkit-transform: scale(1.075,1.075);
+  -ms-transform: scale(1.075,1.075);
+  -o-transform: scale(1.075,1.075);
+  transform: scale(1.075,1.075);
 }
 
 #authornamecolumn {
