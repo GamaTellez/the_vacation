@@ -31,6 +31,7 @@ app.get('/sign_up', function(request, response) {
 
 //handle sign in tap
 app.get('/sign_in', function(request, response) {
+    console.log("got the request");
     vacations_db_controller.sign_in(request, response);
 });
 

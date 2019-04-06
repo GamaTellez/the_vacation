@@ -1,0 +1,37 @@
+{
+  "name": "project_02_the_vacation",
+  "version": "1.0.0",
+  "description": "a simple nodejs app to suggest and select family vacations (school assignment)",
+  "main": "the_vacation_index.js",
+  "dependencies": {
+    "bcrypt": "^3.0.5",
+    "dotenv": "^7.0.0",
+    "ejs": "^2.6.1",
+    "eslint": "^5.15.3",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "pg": "^7.8.2",
+    "pg-pool": "^2.0.6",
+    "query-string": "^6.4.0",
+    "querystring": "^0.2.0",
+    "sql": "^0.78.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node the_vacation_index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GamaTellez/the_vacation.git"
+  },
+  "author": "Gama Tellez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GamaTellez/the_vacation/issues"
+  },
+  "engines": {
+    "node": "11.10.0"
+  },
+  "homepage": "https://github.com/GamaTellez/the_vacation#readme"
+}

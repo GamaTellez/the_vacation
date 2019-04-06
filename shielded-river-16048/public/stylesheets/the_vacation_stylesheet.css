@@ -1,0 +1,243 @@
+#create_vacation_button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  margin: 4px 2px;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  float: right;
+  background: url(/images/plus-96.png) no-repeat;
+}
+
+#signup_button {
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    font-size: 80%;
+}
+
+#titlediv {
+    position:absolute;
+    right: 0px;
+    left: 0px;
+    top: 0px;
+    background: linear-gradient(90deg, #0D832C , #F6FBF7 , #C70039);
+    font-style: italic;
+}
+
+#contentdiv {
+    margin-top: 25px;
+    width: 100%;
+    display: inline-block;
+    height: 300px;
+}
+
+#vacationstable {
+    margin-left: auto;
+	margin-right: auto;
+	max-width: 1000px;
+    float: none;   
+    border-spacing: 10px;
+}
+
+#cellTable {
+    text-align: center;
+    height: 50px;
+}
+
+#cell_vote {
+    text-align: center;
+}
+
+#vote_button {
+  background-color: Transparent;
+  cursor:pointer;
+  border: none;
+  text-decoration: none;
+  margin: 4px 2px;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  float: right;
+  background: url(/images/like-50.png) no-repeat;
+}
+#vote_button:hover {
+  webkit-transform: scale(1.075,1.075);
+  -ms-transform: scale(1.075,1.075);
+  -o-transform: scale(1.075,1.075);
+  transform: scale(1.075,1.075);
+}
+
+#vote_button:active {
+  background: url(/images/like-filled-50.png) no-repeat;
+}
+
+#authornamecolumn {
+    width: 300px;
+    border-radius: 25px;
+    border: 2px solid black;
+    padding: 20px; 
+}
+
+#vacationsnamecolumn {
+    width: 300px;
+    border-radius: 25px;
+    border: 2px solid black;
+    padding: 20px; 
+}
+
+#datecolumn {
+    width: 250px;
+    border-radius: 25px;
+    border: 2px solid black;
+    padding: 20px; 
+}
+
+#votescolumn {
+    width: 100px;
+    border-radius: 25px;
+    border: 2px solid black;
+    padding: 20px; 
+}
+
+#detailscolumn {
+    width: 600px;
+    border-radius: 25px;
+    border: 2px solid black;
+    padding: 20px; 
+}
+
+th {
+    height: 20px;
+}
+
+#table_options_div {
+    margin-top: 150px;
+    text-align: center;
+}
+
+#filter_image {
+    height: 20px;
+    width: 20px;   
+}
+
+#sort_image {
+    height: 20px;
+    width: 20px;   
+}
+
+/* SIGNUP VIEW CSS */
+
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+/* Full-width input fields */
+.signup_textfield {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* Add a background color when the inputs get focus */
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for all buttons */
+.cancelbtn, .signupbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+button:hover {
+  opacity:1;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  padding: 14px 20px;
+  background-color: #f44336;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn, .signupbtn {
+  float: left;
+  width: 50%;
+}
+
+/* Add padding to container elements */
+.container {
+  padding: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: #474e5d;
+  padding-top: 50px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* Style the horizontal ruler */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+ 
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 35px;
+  top: 15px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #f1f1f1;
+}
+
+.close:hover,
+.close:focus {
+  color: #f44336;
+  cursor: pointer;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+  .cancelbtn, .signupbtn {
+     width: 100%;
+  }
+}
