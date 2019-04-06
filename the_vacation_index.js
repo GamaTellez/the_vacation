@@ -10,6 +10,15 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+if (PORT == null || PORT == "") {
+  PORT = 5000;
+  console.log("Listening to port 5000");
+} else {
+  console.log("listening to port: " + PORT);
+
+}
+app.listen(PORT);
+
 //Session
 
 app.use(session({secret: 'ssshhhh'}));
@@ -30,8 +39,7 @@ app.get('/sign_up', function(request, response) {
 });
 
 //handle sign in tap
-app.get('/sign_in', function(request, response) {
-    console.log("got the request");
+app.post('/sign_in', function(request, response) {
     vacations_db_controller.sign_in(request, response);
 });
 
@@ -39,10 +47,5 @@ app.get('/sign_out', function(request, response) {
     response.render('the_vacation.ejs', { vacations : undefined, current_user: undefined});  
 });
 
-if (PORT == null || PORT == "") {
-  PORT = 5000;
-  console.log("Listening to port 5000");
-}
-app.listen(PORT);
 
 

@@ -78,40 +78,38 @@ module.exports = {
     },
 
     sign_in: function sign_in(request, response) {
-        var user_email = request.query.email_login;
-        var user_password = request.query.password_login;
+        var email = request.body.email_login;
+        var password = request.body.password_login;
+        response.json({success:false})
+        const login_query = "SELECT * FROM vacation_attendee WHERE email = lower('" + email + "')";
+        console.log(login_query);
+        pool.query(login_query, function (error, result) {
+            if (error) {
+                console.log("error with login query ---> " + error);
+                response.json({success:false});//failed to login
+            } else {
+                bcrypt.compare(password, result.rows[0].password_hash, function (error) {
+                    if (error) {
+                        console.log("error with hash comparison --> " + error);
+                        // response.json({success:false});//passwords dont match
+                    } else {
+                        console.log("passed hash comparison");
+                        var new_current_user = new attendee.VacationAttendee(result.rows[0].full_name, result.rows[0].email);
+                        request.session.current_user = new_current_user;
+                        get_all_vacations(function (error, vacations) {
+                            if (error) {
+                                console.log(error);
+                                // response.json({ success: false });
+                            } else {
+                                // console.log(vacations);
+                                response.render('the_vacation.ejs', { vacations: vacations, current_user: new_current_user });
+                            }
+                        });
+                    }
+                });
 
-        if (user_email && user_password) {
-            const login_query = "SELECT * FROM vacation_attendee WHERE email = lower('" + user_email + "')";
-            pool.query(login_query, function (error, result) {
-                if (error) {
-                    console.log("error with login query --->" + error);
-                }
-                if (result.rows.length == 1) {
-                    bcrypt.compare(user_password, result.rows[0].password_hash, function (error, password_verified) {
-                        if (error) {
-                            console.log("error with hash comparison --> " + error);
-                            response.json({ success: false });
-                        } else {
-                            var new_current_user = new attendee.VacationAttendee(result.rows[0].full_name, result.rows[0].email);
-                            request.session.current_user = new_current_user;
-                            get_all_vacations(function (error, vacations) {
-                                if (error) {
-                                    console.log(error);
-                                    response.json({ success: false });
-                                } else {
-                                    console.log(vacations);
-                                    response.render('the_vacation.ejs', { vacations: vacations, current_user: new_current_user });
-                                }
-                            });
-                        }
-                    });
-                } else {
-                    response.json({ success: false });
-                    console.log("user not found");
-                }
-            });
-        }
+            }
+        });
     },
 }
 
