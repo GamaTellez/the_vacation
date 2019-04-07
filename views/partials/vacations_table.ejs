@@ -1,5 +1,5 @@
 <div id="table_options_div">
-        <img src="/images/ilter.png" id="filter_image">
+        <!--<img src="/images/ilter.png" id="filter_image">
         <select id="filter_by_user_select">
             <option value="start">Select user</option>
         </select id="sort_by_select">
@@ -9,7 +9,7 @@
             <option>Select field</option>
             <option value="0">Date</option>
             <option value="1">Total votes</option>
-        </select>        
+        </select>-->        
 </div>
 
 <table id="vacationstable">
@@ -23,10 +23,10 @@
         <% var vacation_at_index = vacations[i];%>
         <tr>
             <td align="center"> <%= vacation_at_index.destination; %> </td>
-            <td align="center"> <%= vacation_at_index.creator.get_name(); %> </td>
+            <td align="center"> <%= vacation_at_index.creator.full_name; %> </td>
             <td align="center"> <%= vacation_at_index.description; %> </td>
             <td align="center"> <%= vacation_at_index.votes.length; %></td>
-            <td><button id="vote_button"></button></td>
+            <td><button class="vote_button" value="<%= vacation_at_index.id%>" onclick="add_vote(this.value)"></button></td>
         </tr>
         <% } %> 
     </table>

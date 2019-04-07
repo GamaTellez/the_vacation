@@ -1,9 +1,11 @@
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="/stylesheets/the_vacation_stylesheet.css" />
+<script type="text/javascript" src="./db_client_side.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <title>The Vacation</title>
 <div id="titlediv">
     <h1 id="homepagetitle">May the best vacation win!</h1>
-    <h3><%= current_user.get_name() %></h3>    
+    <h3><%= current_user.full_name %></h3>    
     <form action="/sign_out">
         <button type="submit" id="sign_out" name="sign_out_button" onclick="">Sign out</button>
     </form>

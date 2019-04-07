@@ -5,8 +5,11 @@ var vacations_db_controller = require('./db_controller');
 var app = express();
 var session = require("express-session");
 var bodyParser = require("body-parser");
+var cookieParser = require('cookie-parser');
+
 
 app.use(express.static(path.join(__dirname, 'public')))
+app.use(cookieParser());
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
@@ -25,7 +28,7 @@ app.use(session({secret: 'ssshhhh'}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 
-var current_session;
+var session;
 
 //get vacations function renders the homepage
 app.get('/', function(request, response) {
@@ -33,9 +36,8 @@ app.get('/', function(request, response) {
 });
 
 //handle sign up tapped
-app.get('/sign_up', function(request, response) {
-  current_session = request.session;
-  vacations_db_controller.sign_up(request, response, current_session);
+app.post('/sign_up', function(request, response) {
+  vacations_db_controller.sign_up(request, response);
 });
 
 //handle sign in tap
@@ -44,7 +46,17 @@ app.post('/sign_in', function(request, response) {
 });
 
 app.get('/sign_out', function(request, response) {
+    request.session.current_user = undefined;
+    request.session.vacations = undefined;
     response.render('the_vacation.ejs', { vacations : undefined, current_user: undefined});  
+});
+
+app.post('/add_vacation', function(request, response){
+    vacations_db_controller.add_vacation(request, response);
+});
+
+app.post('/add_vote', function(request, response){
+    vacations_db_controller.add_vote(request, response);
 });
 
 

@@ -2,6 +2,7 @@
 <html>
 
     <head>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
         <% if (current_user) { %>
         <% include partials/header_with_user %>
         <% } else { %>
@@ -21,10 +22,10 @@
              <!-- The Modal (contains the Sign Up form) -->
         <div id="sign_up_form" class="modal">
         <!-- <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal"></span> -->
-        <form class="modal-content" action="/sign_up">
+        <form class="modal-content" action="/sign_up" method="POST">
             <div class="container">
                 <h1>Sign Up</h1>
-                <p>Please fill in this form to create an account.</p>
+                <p>Please fill in this form to create an new vacation.</p>
                 <hr>
                 
                 <label for="Full name"><b>Name</b></label>
@@ -57,20 +58,20 @@
         <!-- Add Vacation Modal (contains the Sign Up form) -->
         <div id='create_vacation_form' class="modal">
         <span onclick="document.getElementById('create_vacation_form').style.display='none'" class="close" title="Close Modal"></span>
-        <form class="modal-content" action="/create_vacation">
+        <form class="modal-content" action="/add_vacation" method="POST">
             <div class="container">
                 <h1>Sign Up</h1>
                 <p>Please fill in this form to create an account.</p>
                 <hr>
                 
                 <label for="destination"><b>Destination</b></label>
-                <input type="text" placeholder="Cancun" name="vacation_destination" class="signup_textfield" required>
+                <input type="text" placeholder="Cancun" id="destination" name="destination" class="signup_textfield" required>
                 
-                <textarea style="width:100%" name="description" class="sign" rows="10" cols="50"></textarea>
+                <textarea style="width:100%" id="description" name="description" class="sign" rows="10" cols="50" required></textarea>
 
                 <div class="clearfix">
                 <button type="button" onclick="document.getElementById('create_vacation_form').style.display='none'" class="cancelbtn">Cancel</button>
-                <button type="submit" class="signupbtn">Sign Up</button>
+                <button type="submit" class="signupbtn">Save Vacation</button> 
                 </div>
             </div>
         </form>

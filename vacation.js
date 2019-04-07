@@ -9,7 +9,7 @@ module.exports = {
             this.description = description;
             this.attendee_creator_id = attendee_creator_id;
             this.creator = undefined;
-            this.votes = undefined;
+            this.votes = [];
         }
         find_creator(pool){
             var self = this;

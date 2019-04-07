@@ -53,7 +53,7 @@
     text-align: center;
 }
 
-#vote_button {
+.vote_button {
   background-color: Transparent;
   cursor:pointer;
   border: none;
@@ -65,7 +65,7 @@
   float: right;
   background: url(/images/like-50.png) no-repeat;
 }
-#vote_button:hover {
+.vote_button:hover {
   webkit-transform: scale(1.075,1.075);
   -ms-transform: scale(1.075,1.075);
   -o-transform: scale(1.075,1.075);

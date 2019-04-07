@@ -5,6 +5,7 @@
   "main": "the_vacation_index.js",
   "dependencies": {
     "bcrypt": "^3.0.5",
+    "cookie-parser": "^1.4.4",
     "dotenv": "^7.0.0",
     "ejs": "^2.6.1",
     "eslint": "^5.15.3",
